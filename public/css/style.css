@@ -1,11 +1,98 @@
-
-/*.row div {
-  border: 1px solid black;
+body,
+.top-bar-section ul li > a {
+  font-family: 'Open Sans Condensed', sans-serif;
 }
-*/
+
+.row {
+  max-width: 100%;
+}
 
 .search-movie {
-  height: 40px;
+  height: 30px;
   margin: 0;
   padding: 0;
 }
+
+/* ? flip magnifying glass */
+.top-bar-section .right .alert {
+  background: #333;
+  height: 40px;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+}
+
+/* search box */
+.top-bar input {
+  height: 40px;
+}
+
+.top-bar .name h1 {
+  font-size: 2.2em; 
+  line-height: 60px;  
+  font-family: Oswald;
+}
+
+.top-bar,
+.top-bar > section > ul > li,
+.top-bar-section .right .has-form {
+  height: 60px;
+  background: red;
+}
+
+/*.top-bar-section ul li.active a,*/
+/*.top-bar-section ul,*/
+/*.top-bar-section li,*/
+.top-bar-section ul li a,
+.top-bar-section ul .divider,
+.top-bar-section {
+  padding: 0;
+  margin: 0; 
+  height: 60px;
+  font-size: 1.1rem;
+}
+
+/* only works when screen is smaller */
+.main-movies-nav li {
+  background: green;
+  font-weight: bold;
+}
+/* only works when screen is smaller */
+.top-bar-section ul li.active > a:hover {
+  background: orange;
+  color: white; 
+}
+
+.main {
+  height: 91%;
+  overflow-y: hidden;
+  border: 2px solid green;
+  background: #cccccc;
+  position: relative
+}
+
+#movie-video,
+#movie-info {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#main-movies-list-title {
+  font-size: 1.2rem;
+  background: #333333;
+  color: white;
+  padding: 10px 5px;
+  margin: 0 0 5px 0;
+}
+
+#main-movies-list {
+  height: 200px;
+  overflow-y: hidden;
+  position: absolute; 
+  bottom: 0;
+  margin: 0 0 10px 0;
+}
+
+img {
+  height: 160px;
+}
+

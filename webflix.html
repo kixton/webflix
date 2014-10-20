@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WEBFLIX</title>
+  <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="public/css/owl.carousel.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="public/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/webflix.css">
+
+</head>
+<body>
+  
+  <div id="header">
+
+    <div class="top-nav">
+      <span class="logo">WEBFLIX</span>
+    </div>
+
+    <div id="nav-links" class="top-nav">
+      <ul>
+        <li class="currently_playing active-nav-link"><a href="#">Currently Playing</a></li
+        ><li class="popular"><a href="#">Popular</a></li
+        ><li class="top_rated"><a href="#">Top Rated</a></li
+        ><li class="upcoming"><a href="#">Upcoming</a></li>
+      </ul>
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Search Movie">
+      <a href="#"><i class="fa fa-search search-btn"></i></a>
+    </div>
+
+  </div>
+
+  <div id="content">
+
+    <div id="movie-extra">
+
+      <!-- youtube video goes here -->
+      <!-- photos go here -->
+      Video here<br>
+      Photos here<br>
+    </div>
+
+    <div id="movie-summary">
+      <h2>Movie Title (2014)</h2>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star-half-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      6.5 / 10 (100 votes)
+      <br>
+      Drama, Sci-Fi<br>
+      <br>
+      This movie was about a cat.<br>
+
+    </div>
+
+
+  </div>
+
+  <div id="footer">
+    <div class="movie-collection-title">Currently Playing</div>
+    <div class="owl-carousel movie-collection">
+      <!-- empty div where movies will render -->
+    </div>
+    
+  </div>
+
+  <script id="movie-collection-script" type="text/x-handlebars-template">
+    <img src={{ poster_path }} data-movie-id={{ id }} class="movies-collection-img">
+  </script>
+
+  <script src="public/js/jquery-1.11.1.min.js"></script>
+  <script src="public/js/handlebars-v1.3.0.js"></script>
+  <script src="public/js/owl.carousel.js"></script>
+  <script src="public/js/owl.navigation.js"></script>
+  <script src="public/js/movies.js"></script>
+</body>
+</html>

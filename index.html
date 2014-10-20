@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <title>Movies</title>
   <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="public/css/foundation.css">
   <link rel="stylesheet" type="text/css" href="public/css/foundation.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/foundation.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="public/css/foundation-icons.css">
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
+
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>
 
@@ -13,84 +17,118 @@
 
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
-
       <li class="name logo">
-        <h1><a href="#">MOVIES DATABASE</a></h1>
+        <h1><a href="#">WEBFLIX</a></h1>
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      <li class="toggle-topbar menu-icon">
+        <a href="#"><span>Menu</span></a>
+      </li>
     </ul>
 
-    <section class="top-bar-section fixed">
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left main-movies-nav">
+        <li class="currently_playing"><a href="#">Currently Playing</a></li> <li class="divider"></li>
+        <li class="popular"><a href="#">Popular</a></li> <li class="divider"></li>
+        <li class="top_rated"><a href="#">Top Rated</a></li> <li class="divider"></li>
+        <li class="upcoming"><a href="#">Upcoming</a></li>
+        <li class="the-drop"><a href="#">TEST</a></li>
+      </ul> <!-- left nav -->
       <!-- Right Nav Section -->
       <ul class="right">
-
         <li class="has-form">
           <div class="row collapse">
-            <div class="large-8 small-9 columns">
+            <div class="large-8 small-9 columns search-movie">
               <input type="text" placeholder="Search Movie" class="search-movie"/>
             </div>
+
             <div class="large-4 small-3 columns">
-              <a href="#" class="alert button expand">Search</a>
+              <a href="#" class="alert button expand"><i class="fi-magnifying-glass"></i></a>
             </div>
           </div>
         </li>
+      </ul> <!-- right nav -->
 
-      </ul>
+    </section> <!-- top-bar-section -->
 
-      <!-- Left Nav Section -->
-      <ul class="left main-movies-nav">
-
-        <li class="currently-playing"><a href="#">Currently Playing</a></li>
-        <li class="divider"></li>
-        <li class="popular"><a href="#">Popular</a></li>
-        <li class="divider"></li>
-        <li class="top-rated"><a href="#">Top Rated</a></li>
-        <li class="divider"></li>
-        <li class="upcoming"><a href="#">Upcoming</a></li>
-
-      </ul>
-    </section>
   </nav>
 
 
   <div class="main">
 
-    <div class="row movies">
-      <h2 id="main-movies-list-title"></h2>
-      <div id="main-movies-list" class="small-12 columns">
-        <ul class="small-block-grid-4 medium-block-grid-7 large-block-grid-7">
-          <!-- empty div where movies will render -->
-        </ul>
+    <div class="row single-movie">
+      <div id="movie-video" class="small-6 columns">
+      Movie Video
+      <center>
+      <iframe class="youtube" width="360" height="203" src="" frameborder="0" allowfullscreen></iframe>
+      </center>
       </div>
 
-    </div>
-  </div>
+      <div id="movie-info" class="small-6 columns">
+      Movie Info
+      </div>
+    </div>  
+
+    <div class="row movies">
+      <div id="main-movies-list" class="small-12 columns">
+      <div class="small-12 columns" id="main-movies-list-title"></div>
+        <ul class="small-block-grid-4 medium-block-grid-7 large-block-grid-8 movies-list">
+          <!-- empty div where movies will render -->
+        </ul>
+      </div> <!-- div: main-movies-list -->
+    </div> <!-- div: all movies -->
 
 
+  </div> <!-- div: main -->
+
+
+  <!-- TEMPLATE: all movies images -->
   <script id="main-movies-list-template" type="text/x-handlebars-template">
-  
     <li class="movies" data-movie-id="{{ id }}">
-      <img src="{{ poster_path }}">
+        <img src={{ poster_path }} class="movie-poster">
     </li>
-  </ul>
-
   </script>
+
+  <!-- TEMPLATE: single movie detail -->
+  <script id="movie-detail-template" type="text/x-handlebars-template">
+    <div class="small-5 columns">
+      <img src={{ poster_path }}>
+    </div>
+
+    <div class="small-7 columns">
+      <h1>{{ original_title }}</h1>
+      <p><strong>Rating:</strong> {{ vote_average }} / 10<br>
+      <em>Ratings Count:</em> {{ vote_count }} </p>
+      <p><strong>Summary:</strong> {{ overview }}</p>
+      <p><strong>Release Date:</strong> {{ release_date }}</p>
+    </div>  
+  </script>
+
 
   <script src="public/js/jquery-1.11.1.min.js"></script>
   <script src="public/js/handlebars-v1.3.0.js"></script>
   <script src="public/js/movies.js"></script>
   <script src="public/js/foundation.min.js"></script>
+
+  <script src="public/js/foundation/foundation.abide.js"></script>
+  <script src="public/js/foundation/foundation.accordion.js"></script>
+  <script src="public/js/foundation/foundation.clearing.js"></script>
   <script src="public/js/foundation/foundation.dropdown.js"></script>
+  <script src="public/js/foundation/foundation.equalizer.js"></script>
+  <script src="public/js/foundation/foundation.interchange.js"></script>
+  <script src="public/js/foundation/foundation.joyride.js"></script>
+  <script src="public/js/foundation/foundation.js"></script>
+  <script src="public/js/foundation/foundation.magellan.js"></script>
+  <script src="public/js/foundation/foundation.offcanvas.js"></script>
+  <script src="public/js/foundation/foundation.orbit.js"></script>
+  <script src="public/js/foundation/foundation.reveal.js"></script>
+  <script src="public/js/foundation/foundation.slider.js"></script>
+  <script src="public/js/foundation/foundation.tab.js"></script>
+  <script src="public/js/foundation/foundation.tooltip.js"></script>
   <script src="public/js/foundation/foundation.topbar.js"></script>
-  <script src="public/js/foundation/foundation.alert.js"></script>
+
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>      
 
 </body>
 </html>
-
-
-<!--   // <div class="movies" data-movie-id="{{ id }}">
-  //   <h4>{{ title }}</h4>
-  //   <p>{{ vote_average }}</p>
-  //   <img src="{{ poster_path }}">
-  // </div> -->
