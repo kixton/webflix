@@ -14,11 +14,9 @@
 <body>
   
   <div id="header">
-
     <div class="top-nav">
       <span class="logo">WEBFLIX</span>
     </div>
-
     <div id="nav-links" class="top-nav">
       <ul>
         <li class="currently_playing active-nav-link"><a href="#">Currently Playing</a></li
@@ -27,57 +25,63 @@
         ><li class="upcoming"><a href="#">Upcoming</a></li>
       </ul>
     </div>
-
     <div class="search">
       <input type="text" placeholder="Search Movie">
       <a href="#"><i class="fa fa-search search-btn"></i></a>
     </div>
-
   </div>
 
   <div id="content">
-
-    <div id="movie-extra">
-
-      <!-- youtube video goes here -->
-      <!-- photos go here -->
-      Video here<br>
-      Photos here<br>
+  
+    <div id="single-movie-info">
+      <div id="movie-extra-info">
+      <!-- movie video will render here -->
+      <iframe class="youtube" src="" allowfullscreen></iframe>
+      </div>
+      <div id="movie-main-summary">
+      <!-- movie summary will render here -->
+      </div>
     </div>
 
-    <div id="movie-summary">
-      <h2>Movie Title (2014)</h2>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star-half-o"></i>
-      <i class="fa fa-star-o"></i>
-      <i class="fa fa-star-o"></i>
-      <i class="fa fa-star-o"></i>
-      6.5 / 10 (100 votes)
-      <br>
-      Drama, Sci-Fi<br>
-      <br>
-      This movie was about a cat.<br>
-
+    <div id="movie-collection">
+    <!-- movie collections will render here -->
     </div>
 
+    <div id="movie-collection-container">
+      <div class="slick-initialized slick-slider">
+        <div class="slick-list draggable">
+        </div>
+      </div>
+    </div>
 
   </div>
 
-  <div id="footer">
-    <div class="movie-collection-title">Currently Playing</div>
-    <div class="owl-carousel movie-collection">
-      <!-- empty div where movies will render -->
-    </div>
-    
-  </div>
+  <script id="movie-collection-template2" type="text/x-handlebars-template">
 
-  <script id="movie-collection-script" type="text/x-handlebars-template">
+  </script>
+
+  <script id="movie-collection-template" type="text/x-handlebars-template">
     <img src={{ poster_path }} data-movie-id={{ id }} class="movies-collection-img">
+  </script>
+
+  <script id="movie-detail-template" type="text/x-handlebars-template">
+
+    <div id="summary-left">
+    <img src={{ poster_path }} data-movie-id={{ id }} id="movie-summary-img"><br>
+    </div>
+
+    <div id="summary-right">
+    <span id="movie-summary-title">{{ original_title }}</span><br>
+    Release Date: <b>{{ release_date }}</b><br>
+    Genres: <b>{{ all_genres }}</b><br>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-star fa-stack-2x"></i>
+      <i class="fa fa-stack-1x"> {{ vote_average }}</i>
+      <i class="fa fa-stack votes">({{ vote_count }} votes)</i>
+    </span><br><br>
+    {{ overview }}<br>
+    </div>
+
   </script>
 
   <script src="public/js/jquery-1.11.1.min.js"></script>
