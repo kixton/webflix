@@ -93,7 +93,7 @@ li a:hover {
   right: 0;
   top: 60px;
   overflow:scroll; 
-  background: #ddd; 
+  background: #bbb; 
   width: 100%;
   text-align: center;
 }
@@ -105,7 +105,7 @@ h2 {
 
 #movie-collection {
   text-align: center;
-  height: 200px;
+  /*height: 200px;*/
 }
 
 .movies-collection-img {
@@ -115,7 +115,7 @@ h2 {
 }
 
 #single-movie-info {
-  height: 400px;
+  height: 350px;
   background: #bbb; 
   position: relative;
   text-align: center;
@@ -136,7 +136,7 @@ h2 {
 }
 
 #movie-summary-img {
-  height: 380px;
+  height: 320px;
   margin: 10px;
 }
 
@@ -184,6 +184,25 @@ h2 {
 .youtube {
   margin: 10px;
   width: 480px;
-  height: 380px;
+  height: 320px;
   border: 0;
+}
+
+.movie-thumb {
+  /*border: 5px solid black;*/
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.center {
+  padding: 10px 50px;
+  background: #999;
+}
+
+.movie-thumb:hover {
+  cursor: hand;
+  cursor: cursor;
+  cursor: pointer;
 }

@@ -25,23 +25,31 @@ var getMovies = function(url, divClass, title) {
 
   $.get(url, function(data) {
 
+    console.log(data);
     var movieData = data;
     
+    // load initial main movie
+    var singleMovieId = movieData.results[3].id;
+    var url1 = urls.singleMovieInfo + singleMovieId + "?api_key=" + APIKEY;
+    var url2 = urls.singleMovieInfo + singleMovieId + "/videos?api_key=" + APIKEY;
+
+    getMovieInfo(url1, url2);
+
+
     $.each(movieData.results, function(index, movie) {
 
-      if (index < 14 ) {
-        if (movie.poster_path === null || movie.poster_path === "") {
-          movie.poster_path = 'http://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
-        } // end of if
-        else {
-          movie.poster_path = imgSize.img130 + movie.poster_path;
-          var source = $("#movie-collection-template").html();
-          var template = Handlebars.compile(source);
-          var myNewHTML = template(movie);
+      if (movie.poster_path === null || movie.poster_path === "") {
+        movie.poster_path = 'http://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
+      } // end of if
+      else {
+        movie.poster_path = imgSize.img130 + movie.poster_path;
 
-          $("#movie-collection").append(myNewHTML);
-        } // end of else
-      }
+        var source = $("#movie-collection-template").html();
+        var template = Handlebars.compile(source);
+        var myNewHTML = template(movie);
+        // $("#movie-collection").append(myNewHTML);
+      } // end of else
+
     }); // end of each
   });
 };
@@ -79,7 +87,6 @@ var getMovieInfo = function(url1, url2) {
       videoId = "https://www.youtube.com/embed/" + data.results[0].key;
       $(".youtube").attr("src", videoId);
     }
-
 
     // console.log(data.results[0].key);
     // $.each(data.results, function(index, videoInfo) {
@@ -120,7 +127,9 @@ $(document).ready( function() {
   getMovies(urls.nowPlaying + APIKEY, 'currently_playing', 'Currently Playing Movies');
   $(".currently_playing").addClass('active-nav-link');
 
-  $("#movie-collection").on("click", ".movies-collection-img", function(data) {
+  $(".movie-thumb").click(function(data) {
+    console.log("clicked");
+  // $("#movie-collection").on("click", ".movies-collection-img", function(data) {
     movieId = $(this).attr("data-movie-id");
     console.log(movieId);
 
@@ -132,6 +141,37 @@ $(document).ready( function() {
   });
 
 
-});
+  $('.center').slick({
+    centerMode: true,
+    centerPadding: '80px',
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    accessibility: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 2
+        }
+      }
+    ]
+  });
 
+
+});
 
