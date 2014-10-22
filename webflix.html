@@ -9,6 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="public/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css"/>
+  <link rel="shortcut icon" href="movie-favicon.ico">
 
   <link rel="stylesheet" type="text/css" href="public/css/webflix.css">
 
@@ -25,6 +26,7 @@
         ><li class="popular"><a href="#">Popular</a></li
         ><li class="top_rated"><a href="#">Top Rated</a></li
         ><li class="upcoming"><a href="#">Upcoming</a></li
+        ><li class="about"><a href="#">About</a></li
         >
         <!-- <li class="genres"><a href="#">Upcoming</a></li> -->
       </ul>
@@ -37,10 +39,14 @@
 
   <div id="content">
 
+    <div id="about">
+      Webflix was created by <a class="social-link" href="https://github.com/kixton">Kim Pham</a> during Week 5 at MakerSquare, a coding bootcamp in San Francisco. This is her first application using an Application Programming Interface. Credits: <a class="social-link" href="https://www.themoviedb.org/documentation/api">The Movie Database API</a>
+    </div>
+
     <div id="single-movie-info">
       <div id="movie-extra-info">
       <!-- movie video will render here -->
-      <iframe class="youtube" src="" allowfullscreen></iframe>
+        <div><iframe class="youtube" src="" allowfullscreen></iframe></div>
       </div>
       <div id="movie-main-summary">
       <!-- movie summary will render here -->
@@ -49,7 +55,6 @@
 
     <div class="center"> 
     <!-- movie thumb will render here -->
-      <div class="movie-thumb" data-movie-id="210577"><img class="movie-img-x" src="https://image.tmdb.org/t/p/w130//p03nS9t3pHiDUretGYdA3qKeixj.jpg"></div>
       <div class="movie-thumb" data-movie-id="262543"><img src="https://image.tmdb.org/t/p/w130//wwo81W8PxHREEprnrJRww471hWm.jpg"></div>
       <div class="movie-thumb" data-movie-id="210577"><img src="https://image.tmdb.org/t/p/w130//5nl4WEEpLb75Y82NC4QZ45H6jG2.jpg"></div>
       <div class="movie-thumb" data-movie-id="262543"><img src="https://image.tmdb.org/t/p/w130//fIHF63oznk2PXlYM6pPfhnOB3SD.jpg"></div>
@@ -57,6 +62,7 @@
       <div class="movie-thumb" data-movie-id="262543"><img src="https://image.tmdb.org/t/p/w130//a3TV3i4wfvEQenCbHhOhs7j7zis.jpg"></div>
       <div class="movie-thumb" data-movie-id="210577"><img src="https://image.tmdb.org/t/p/w130//vTdmODiZHZbDF7N6yKzxJUnPYvy.jpg"></div>
       <div class="movie-thumb" data-movie-id="262543"><img src="https://image.tmdb.org/t/p/w130//o9cnrkwpC9RJ3WWf98ifys6tN6D.jpg"></div>
+      <div class="movie-thumb render-here" data-movie-id="210577"><img class="movie-img-x" src="https://image.tmdb.org/t/p/w130//p03nS9t3pHiDUretGYdA3qKeixj.jpg"></div>
     </div>
 
     <div id="movie-collection">
@@ -65,11 +71,10 @@
 
 
   <script id="movie-collection-template" type="text/x-handlebars-template">
-    <img src={{ poster_path }} data-movie-id={{ id }} class="movies-collection-img">
+    <div><img src={{ poster_path }} data-movie-id={{ id }} class="movies-collection-img"></div>
   </script>
 
   <script id="movie-detail-template" type="text/x-handlebars-template">
-
     <div id="summary-left">
     <img src={{ poster_path }} data-movie-id={{ id }} id="movie-summary-img"><br>
     </div>

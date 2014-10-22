@@ -132,11 +132,12 @@ h2 {
   float: right;
   height: 99%;
   /*border: 1px solid black;*/
-  margin: 0;
+  margin-right: 10px;
 }
 
 #movie-summary-img {
-  height: 320px;
+  max-height: 320px;
+  max-width: 85%;
   margin: 10px;
 }
 
@@ -156,7 +157,7 @@ h2 {
   margin-top: 10px;
   font-size: 1.1em;
   float: right;
-  width: 60%;
+  width: 65%;
   text-align: left;
 }
 
@@ -183,9 +184,11 @@ h2 {
 
 .youtube {
   margin: 10px;
-  width: 480px;
+  width: 100%;
+  /*width: 480px;*/
   height: 320px;
   border: 0;
+  background: #999;
 }
 
 .movie-thumb {
@@ -205,4 +208,9 @@ h2 {
   cursor: hand;
   cursor: cursor;
   cursor: pointer;
+}
+
+.social-link {
+  color: #000;
+  font-weight: bold;
 }

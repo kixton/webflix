@@ -22,7 +22,6 @@ var getMovies = function(url, divClass, title) {
   $("#movie-collection").empty();
   $('li').removeClass('active-nav-link');
 
-
   $.get(url, function(data) {
 
     console.log(data);
@@ -35,22 +34,52 @@ var getMovies = function(url, divClass, title) {
 
     getMovieInfo(url1, url2);
 
-
     $.each(movieData.results, function(index, movie) {
-
       if (movie.poster_path === null || movie.poster_path === "") {
         movie.poster_path = 'http://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
       } // end of if
       else {
         movie.poster_path = imgSize.img130 + movie.poster_path;
-
         var source = $("#movie-collection-template").html();
         var template = Handlebars.compile(source);
         var myNewHTML = template(movie);
+        // $(".render-here").after(myNewHTML);
         // $("#movie-collection").append(myNewHTML);
+        
       } // end of else
-
     }); // end of each
+
+    $('.center').slick({
+      centerMode: true,
+      centerPadding: '80px',
+      slidesToShow: 7,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      accessibility: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        }
+      ]
+    });
+
   });
 };
 
@@ -66,6 +95,9 @@ var getMovieInfo = function(url1, url2) {
     $(".youtube").attr("src", "");
 
     data.poster_path = imgSize.img396 + data.poster_path;
+    if (data.overview.length > 500) {
+      data.overview = data.overview.substring(0, 525) + "....Continued";
+    }
 
     data.all_genres = [];
     for (var i = 0; i < data.genres.length; i++) {
