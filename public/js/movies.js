@@ -43,7 +43,7 @@ var getMovies = function(url, divClass, title) {
         var source = $("#movie-collection-template").html();
         var template = Handlebars.compile(source);
         var myNewHTML = template(movie);
-        // $(".render-here").after(myNewHTML);
+        $(".render-here").after(myNewHTML);
         // $("#movie-collection").append(myNewHTML);
         
       } // end of else
