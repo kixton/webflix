@@ -43,15 +43,15 @@ var getMovies = function(url, divClass, title) {
         var source = $("#movie-collection-template").html();
         var template = Handlebars.compile(source);
         var myNewHTML = template(movie);
-        $(".render-here").after(myNewHTML);
-        // $("#movie-collection").append(myNewHTML);
+        $(".center").append(myNewHTML);
         
       } // end of else
+      
     }); // end of each
 
     $('.center').slick({
-      centerMode: true,
-      centerPadding: '80px',
+      // centerMode: true,
+      // centerPadding: '80px',
       slidesToShow: 7,
       slidesToScroll: 1,
       autoplay: true,
@@ -159,9 +159,8 @@ $(document).ready( function() {
   getMovies(urls.nowPlaying + APIKEY, 'currently_playing', 'Currently Playing Movies');
   $(".currently_playing").addClass('active-nav-link');
 
-  $(".movie-thumb").click(function(data) {
-    console.log("clicked");
-  // $("#movie-collection").on("click", ".movies-collection-img", function(data) {
+  $("#movie-collection").on("click", ".movies-collection-img", function(data) {
+    // console.log("clicked");
     movieId = $(this).attr("data-movie-id");
     console.log(movieId);
 
@@ -173,36 +172,7 @@ $(document).ready( function() {
   });
 
 
-  $('.center').slick({
-    centerMode: true,
-    centerPadding: '80px',
-    slidesToShow: 7,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    accessibility: true,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 5
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 2
-        }
-      }
-    ]
-  });
+
 
 
 });
