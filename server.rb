@@ -3,5 +3,5 @@ require 'sinatra/reloader'
 set :bind, '0.0.0.0' # Vagrant fix
 
 get '/' do
-  send_file 'index.html'
+  send_file 'webflix.html'
 end
