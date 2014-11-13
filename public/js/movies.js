@@ -9,8 +9,8 @@ var urls = {
 };
 
 var imgSize = {
-  img92: 'http://image.tmdb.org/t/p/w92/',
-  img185: 'http://image.tmdb.org/t/p/w185/',
+  img92: 'https://image.tmdb.org/t/p/w92/',
+  img185: 'https://image.tmdb.org/t/p/w185/',
   img130: 'https://image.tmdb.org/t/p/w130/',
   img396: 'https://image.tmdb.org/t/p/w396',
   img500: 'https://image.tmdb.org/t/p/w500/',
@@ -36,7 +36,7 @@ var getMovies = function(url, divClass, title) {
 
     $.each(movieData.results, function(index, movie) {
       if (movie.poster_path === null || movie.poster_path === "") {
-        movie.poster_path = 'http://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
+        movie.poster_path = 'https://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
       } // end of "if"
       else {
         movie.poster_path = imgSize.img130 + movie.poster_path;
