@@ -23,8 +23,6 @@ var getMovies = function(url, divClass, title) {
   $('li').removeClass('active-nav-link');
 
   $.get(url, function(data) {
-
-    console.log(data);
     var movieData = data;
     
     // load initial main movie
@@ -145,7 +143,7 @@ $(document).ready( function() {
   getMovies(urls.nowPlaying + APIKEY, 'currently_playing', 'Currently Playing Movies');
   $(".currently_playing").addClass('active-nav-link');
 
-  $("#movie-collection").on("click", ".movies-collection-img", function(data) {
+  $(".movie-thumb").on("click", ".movies-collection-img", function(data) {
     console.log("clicked");
     movieId = $(this).attr("data-movie-id");
     console.log(movieId);
