@@ -80,37 +80,6 @@ var getMovies = function(url, divClass, title) {
   });
 };
 
-var addSlick = function() {
-  slick({
-      slidesToShow: 7,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 1500,
-      accessibility: true,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 5
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 2
-          }
-        }
-      ]
-    });
-}
-
 var getMovieInfo = function(url1, url2) {
 
   $.get(url1, function(data) {
@@ -177,7 +146,7 @@ $(document).ready( function() {
   $(".currently_playing").addClass('active-nav-link');
 
   $("#movie-collection").on("click", ".movies-collection-img", function(data) {
-    // console.log("clicked");
+    console.log("clicked");
     movieId = $(this).attr("data-movie-id");
     console.log(movieId);
     var url1 = urls.singleMovieInfo + movieId + "?api_key=" + APIKEY;
