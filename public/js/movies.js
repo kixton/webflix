@@ -19,7 +19,7 @@ var imgSize = {
 var getMovies = function(url, divClass, title) {
 
   // clear div and title; change active link
-  $("#movie-collection").empty();
+  $(".movie-thumb").empty();
   $('li').removeClass('active-nav-link');
 
   $.get(url, function(data) {
@@ -37,21 +37,18 @@ var getMovies = function(url, divClass, title) {
     $.each(movieData.results, function(index, movie) {
       if (movie.poster_path === null || movie.poster_path === "") {
         movie.poster_path = 'http://m.rgbimg.com/cache1nToqD/users/g/gr/greekgod/600/mlns11c.jpg';  
-      } // end of if
+      } // end of "if"
       else {
         movie.poster_path = imgSize.img130 + movie.poster_path;
         var source = $("#movie-collection-template").html();
         var template = Handlebars.compile(source);
         var myNewHTML = template(movie);
-        $(".center").append(myNewHTML);
-        
-      } // end of else
-      
-    }); // end of each
+        $(".movie-thumb").append(myNewHTML);
+      } // end of "else"
+    }); // end of "each"
 
-    $('.center').slick({
-      // centerMode: true,
-      // centerPadding: '80px',
+    $(".movie-thumb").unslick();
+    $(".movie-thumb").slick({
       slidesToShow: 7,
       slidesToScroll: 1,
       autoplay: true,
@@ -83,13 +80,41 @@ var getMovies = function(url, divClass, title) {
   });
 };
 
+var addSlick = function() {
+  slick({
+      slidesToShow: 7,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      accessibility: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        }
+      ]
+    });
+}
 
 var getMovieInfo = function(url1, url2) {
 
   $.get(url1, function(data) {
-
     console.log(data);
-
     // clear out single movie
     $("#movie-main-summary").empty();
     $(".youtube").attr("src", "");
@@ -120,12 +145,6 @@ var getMovieInfo = function(url1, url2) {
       $(".youtube").attr("src", videoId);
     }
 
-    // console.log(data.results[0].key);
-    // $.each(data.results, function(index, videoInfo) {
-    //   videoInfo.key = "https://www.youtube.com/embed/" + videoInfo.key;
-    //   $(".youtube").attr("src", videoInfo.key);
-    // });
-
   });
 
 };
@@ -153,9 +172,7 @@ $('.upcoming').on('click', function() {
 
 
 $(document).ready( function() {
-
   var movieId;
-
   getMovies(urls.nowPlaying + APIKEY, 'currently_playing', 'Currently Playing Movies');
   $(".currently_playing").addClass('active-nav-link');
 
@@ -163,16 +180,10 @@ $(document).ready( function() {
     // console.log("clicked");
     movieId = $(this).attr("data-movie-id");
     console.log(movieId);
-
     var url1 = urls.singleMovieInfo + movieId + "?api_key=" + APIKEY;
     var url2 = urls.singleMovieInfo + movieId + "/videos?api_key=" + APIKEY;
-
     getMovieInfo(url1, url2);
-
   });
-
-
-
 
 
 });
