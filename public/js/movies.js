@@ -1,5 +1,3 @@
-
-var APIKEY = '5cd09754dc5adf93823bd7db20da902d';
 var urls = {
   nowPlaying: 'https://api.themoviedb.org/3/movie/now_playing?api_key=',
   popular: 'https://api.themoviedb.org/3/movie/popular?api_key=',
@@ -81,7 +79,6 @@ var getMovies = function(url, divClass, title) {
 var getMovieInfo = function(url1, url2) {
 
   $.get(url1, function(data) {
-    console.log(data);
     // clear out single movie
     $("#movie-main-summary").empty();
     $(".youtube").attr("src", "");
@@ -137,6 +134,7 @@ $('.upcoming').on('click', function() {
   $(this).addClass('active-nav-link');
 });
 
+var APIKEY = '5cd09754dc5adf93823bd7db20da902d';
 
 $(document).ready( function() {
   var movieId;
@@ -144,9 +142,7 @@ $(document).ready( function() {
   $(".currently_playing").addClass('active-nav-link');
 
   $(".movie-thumb").on("click", ".movies-collection-img", function(data) {
-    console.log("clicked");
     movieId = $(this).attr("data-movie-id");
-    console.log(movieId);
     var url1 = urls.singleMovieInfo + movieId + "?api_key=" + APIKEY;
     var url2 = urls.singleMovieInfo + movieId + "/videos?api_key=" + APIKEY;
     getMovieInfo(url1, url2);
@@ -154,4 +150,3 @@ $(document).ready( function() {
 
 
 });
-
