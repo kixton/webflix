@@ -15,7 +15,6 @@ var imgSize = {
 };
 
 var getMovies = function(url, divClass, title) {
-
   // clear div and title; change active link
   $(".movie-thumb").empty();
   $('li').removeClass('active-nav-link');
@@ -139,9 +138,14 @@ var APIKEY = '5cd09754dc5adf93823bd7db20da902d';
 $(document).ready( function() {
   var movieId;
   getMovies(urls.nowPlaying + APIKEY, 'currently_playing', 'Currently Playing Movies');
+  
   $(".currently_playing").addClass('active-nav-link');
 
+  mixpanel.track("Landing page");
+
+
   $(".movie-thumb").on("click", ".movies-collection-img", function(data) {
+    mixpanel.track("Single movie view");   
     movieId = $(this).attr("data-movie-id");
     var url1 = urls.singleMovieInfo + movieId + "?api_key=" + APIKEY;
     var url2 = urls.singleMovieInfo + movieId + "/videos?api_key=" + APIKEY;
