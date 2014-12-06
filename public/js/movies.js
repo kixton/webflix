@@ -129,6 +129,7 @@ $('.top_rated').on('click', function() {
 });
 
 $('.upcoming').on('click', function() {
+  mixpanel.track("Upcoming movies");
   getMovies(urls.upcoming + APIKEY, 'upcoming', 'Upcoming Movies');
   $(this).addClass('active-nav-link');
 });
