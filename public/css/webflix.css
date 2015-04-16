@@ -109,10 +109,10 @@ h2 {
 }
 
 .movies-collection-img {
-  height: 90%;
+  height: 150px;
   /*height: 270px;*/
   /*width: 170px;*/
-  margin: 5px;
+  margin: 0;
 }
 
 #single-movie-info {
@@ -193,10 +193,10 @@ h2 {
 }
 
 .movie-thumb {
-  height: 30%;
+  height: 170px;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 95%;
   display: inline-block;
 }
 
