@@ -103,6 +103,10 @@ h2 {
   line-height: 0em; 
 }
 
+#about {
+  margin-top: 40px;
+}
+
 #movie-collection {
   text-align: center;
   /*height: 200px;*/
@@ -121,6 +125,7 @@ h2 {
   position: relative;
   text-align: center;
   padding: 20px;
+  margin-top: 20px;
 }
 
 #movie-extra-info {
